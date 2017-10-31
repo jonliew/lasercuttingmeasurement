@@ -179,11 +179,9 @@ namespace LaserCuttingMeasurement
             {
                 SmtpClient client = new SmtpClient("smtp.service.osu.edu");
                 client.UseDefaultCredentials = false;
-                client.Credentials = new System.Net.NetworkCredential("liew.28", "");
+                client.Port = 25;
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
-                client.Port = 587;
-                client.EnableSsl = true;
-
+                
                 MailMessage mail = new MailMessage("3DLaserCutting@osu.edu", "liew.28@osu.edu");
                 mail.Subject = "FEH Laser Cutting Measurement Log";
                 mail.Body = "File uploaded to site: " + savePath;
